@@ -48,13 +48,13 @@ fn benchmark_quantize_15(c: &mut Criterion) {
 
     let mut group = c.benchmark_group("quantize_15");
 
-    // group.bench_function("original_small", |b| b.iter(|| quantize_15_original(black_box(&small_lut))));
+    group.bench_function("original_small", |b| b.iter(|| quantize_15_original(black_box(&small_lut))));
     group.bench_function("optimized_small", |b| b.iter(|| quantize_15_optimized(black_box(&small_lut))));
 
-    // group.bench_function("original_medium", |b| b.iter(|| quantize_15_original(black_box(&medium_lut))));
+    group.bench_function("original_medium", |b| b.iter(|| quantize_15_original(black_box(&medium_lut))));
     group.bench_function("optimized_medium", |b| b.iter(|| quantize_15_optimized(black_box(&medium_lut))));
 
-    // group.bench_function("original_large", |b| b.iter(|| quantize_15_original(black_box(&large_lut))));
+    group.bench_function("original_large", |b| b.iter(|| quantize_15_original(black_box(&large_lut))));
     group.bench_function("optimized_large", |b| b.iter(|| quantize_15_optimized(black_box(&large_lut))));
 
     group.finish();
